@@ -1,31 +1,44 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard} from 'react-native';
-import ScreenOneImage from '../../../assets/images/nameScreenImage.svg';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
+import ScreenTwoImage from '../../../assets/images/bornScreenImage.svg';
 import {w} from '../../constants';
 import {Header} from '../Header';
 
-export const NameScreen = () => {
+export const BornScreen = () => {
+
+  const value = new Date(1598051730000)
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.wrapper}>
           <Header />
 
+          <DateTimePicker
+            testID="dateTimePicker"
+            timeZoneOffsetInMinutes={0}
+            value={value}
+            mode={'date'}
+            is24Hour={true}
+            display="default"
+          />
+
 
         <View style={styles.contentWrapper}>
           <View style={styles.contentTitle}>
-            <Text style={styles.contentTitleText}>What is your name?</Text>
+            <Text style={styles.contentTitleText}>When were you born?</Text>
           </View>
           <View style={styles.contentImage}>
-            <ScreenOneImage width={w / 1.4}/>
+            <ScreenTwoImage width={w / 1.4}/>
           </View>
           <View style={styles.contentInputWrapper}>
-            <TextInput style={styles.contentInput} textContentType={'name'} placeholder={'Name'}/>
+            <TextInput style={styles.contentInput} textContentType={'name'} placeholder={'Day/Month/Year'}/>
           </View>
 
           <View style={styles.paginationWrapper}>
 
-            <View style={styles.paginationItemActive}/>
             <View style={styles.paginationItem}/>
+            <View style={styles.paginationItemActive}/>
             <View style={styles.paginationItem}/>
 
           </View>
@@ -50,7 +63,7 @@ export const NameScreen = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#7540EE',
+    backgroundColor: '#F95179',
     paddingVertical: 55,
     paddingHorizontal: 40,
     height: '100%',
