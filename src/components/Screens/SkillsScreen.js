@@ -2,14 +2,14 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard} from 'react-native';
 // import DateTimePicker from '@react-native-community/datetimepicker';
 
-import ScreenTwoImage from '../../../assets/images/bornScreenImage.svg';
-import CalendarIcon from '../../../assets/images/calendarIcon.svg';
+import ScreenThreeImage from '../../../assets/images/skillsScreenImage.svg';
+import DownArrow from '../../../assets/images/downArrow.svg';
 import {w} from '../../constants';
 import {Header} from '../Header';
 import BackIcon from '../../../assets/images/backArrow.svg';
 import MenuIcon from '../../../assets/images/menuIcon.svg';
 
-export const BornScreen = ({navigation}) => {
+export const SkillsSceen = ({navigation}) => {
 
   const value = new Date(1598051730000);
   return (
@@ -32,37 +32,39 @@ export const BornScreen = ({navigation}) => {
         </View>
 
 
+
         <View style={styles.contentWrapper}>
           <View style={styles.contentTitle}>
-            <Text style={styles.contentTitleText}>When were you born?</Text>
+            <Text style={styles.contentTitleText}>What skills do you have?</Text>
           </View>
           <View style={styles.contentImage}>
-            <ScreenTwoImage width={w / 1.4}/>
+            <ScreenThreeImage width={w / 1.4}/>
           </View>
           <View style={styles.contentInputWrapper}>
-            <TextInput style={styles.contentInput} textContentType={'name'} placeholder={'Day/Month/Year'}/>
-            <TouchableOpacity style={styles.calendar}>
-              <CalendarIcon width={30}/>
+            <TextInput style={styles.contentInput} textContentType={'name'} placeholder={'Skills'}/>
+            <TouchableOpacity style={styles.downArrow}>
+              <DownArrow width={30}/>
             </TouchableOpacity>
           </View>
 
           <View style={styles.paginationWrapper}>
 
             <View style={styles.paginationItem}/>
-            <View style={styles.paginationItemActive}/>
             <View style={styles.paginationItem}/>
+            <View style={styles.paginationItemActive}/>
+
 
           </View>
         </View>
 
         <View style={styles.buttonsWrapper}>
 
-          <TouchableOpacity style={styles.buttonSkip} onPress={() => navigation.navigate('SkillsSceen')}>
-            <Text style={styles.buttonSkipText}>Skip</Text>
+          <TouchableOpacity style={styles.buttonSkip}>
+            {/*<Text style={styles.buttonSkipText}>Skip</Text>*/}
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonNext} onPress={() => navigation.navigate('SkillsSceen')} >
-            <Text style={styles.buttonNextText}>Next</Text>
+          <TouchableOpacity style={styles.buttonNext}>
+            <Text style={styles.buttonNextText}>Finish</Text>
           </TouchableOpacity>
 
         </View>
@@ -74,7 +76,7 @@ export const BornScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#F95179',
+    backgroundColor: '#F4B512',
     paddingVertical: 55,
     paddingHorizontal: 40,
     height: '100%',
@@ -170,9 +172,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
   },
-  calendar: {
+  downArrow: {
     position: 'absolute',
-    top: '35%',
+    top: '45%',
     right: 30,
   }
 });

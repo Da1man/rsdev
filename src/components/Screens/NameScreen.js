@@ -3,12 +3,28 @@ import {View, Text, StyleSheet, TouchableOpacity, TextInput, TouchableWithoutFee
 import ScreenOneImage from '../../../assets/images/nameScreenImage.svg';
 import {w} from '../../constants';
 import {Header} from '../Header';
+import BackIcon from '../../../assets/images/backArrow.svg';
+import MenuIcon from '../../../assets/images/menuIcon.svg';
 
-export const NameScreen = () => {
+export const NameScreen = ({navigation}) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.wrapper}>
-          <Header />
+
+        <View style={styles.headerWrapper}>
+
+          <View style={styles.headerBack}>
+            {/*<BackIcon width={12}/>*/}
+          </View>
+
+          <View style={styles.headerTitle}>
+            <Text style={styles.headerTitleText}>Sign up</Text>
+          </View>
+
+          <TouchableOpacity style={styles.headerMenu}>
+            <MenuIcon width={28}/>
+          </TouchableOpacity>
+        </View>
 
 
         <View style={styles.contentWrapper}>
@@ -33,11 +49,11 @@ export const NameScreen = () => {
 
         <View style={styles.buttonsWrapper}>
 
-          <TouchableOpacity style={styles.buttonSkip}>
+          <TouchableOpacity style={styles.buttonSkip} onPress={() => navigation.navigate('BornScreen')}>
             <Text style={styles.buttonSkipText}>Skip</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.buttonNext}>
+          <TouchableOpacity style={styles.buttonNext} onPress={() => navigation.navigate('BornScreen')}>
             <Text style={styles.buttonNextText}>Next</Text>
           </TouchableOpacity>
 
@@ -61,7 +77,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 40,
   },
-  headerBack: {},
+  headerBack: {
+    width: 12,
+  },
   headerTitle: {},
   headerTitleText: {
     fontFamily: 'Pangram-Medium',
